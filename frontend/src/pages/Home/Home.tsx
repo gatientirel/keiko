@@ -35,7 +35,7 @@ const fetchPokemons = async () => {
   const response = await fetch(`${BASE_URL_POKEMON_API}${endpoints.allPokemons}`, {
     headers: { accept: "application/json" },
   })
-  return response.json()
+  return await response.json()
 }
 
 export const Home = () => {

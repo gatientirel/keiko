@@ -1,18 +1,20 @@
-import styles from "../../pages/Home/Home.module.css"
+import styles from "./Pokemon.module.css"
+import { PokemonInfo as PokemonType } from "../../pages/Home"
 
 interface PokemonProps {
-  name: string
-  id: number
+  pokemon: PokemonType
 }
 
 const BASE_URL_SPRITE_POKEMON = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon"
 
-export const Pokemon = ({ name, id }: PokemonProps) => {
+export const Pokemon = ({ pokemon: { name, id, weight, height } }: PokemonProps) => {
   return (
-    <div className={styles.intro}>
+    <div className={styles.card}>
+      <p>{name}</p>
       <img src={`${BASE_URL_SPRITE_POKEMON}/${id}.png`} />
-      <p>Name: {name}</p>
-      <p>Number: {id}</p>
+      <p>Id: {id}</p>
+      <p>Weight: {weight} kg</p>
+      <p>Height: {height} cm</p>
     </div>
   )
 }

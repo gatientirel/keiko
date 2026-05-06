@@ -9,6 +9,18 @@
 .input {
   border-width: 2px;
   border-style: inset;
+  border-radius: 4px;
   border-color: rgb(118, 118, 118);
   border-image: initial;
+}
+
+.input:focus,
+.input:focus-visible {
+  outline: solid lightgray;
+}
+
+.pokemon_cards_container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  gap: 5px;
 }

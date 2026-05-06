@@ -1,15 +1,40 @@
+import { useState, useEffect } from "react"
 import { Pokemon } from "../../components/Pokemon"
 import styles from "./Home.module.css"
 
+export interface PokemonInfo {
+  name: string
+  id: number
+  height: number
+  weight: number
+}
+
+const BASE_URL_POKEMON_API = "http://localhost:8000"
+const endpoints = {
+  allPokemons: "/pokemons",
+}
+
+const fetchPokemons = async () => {
+  const response = await fetch(`${BASE_URL_POKEMON_API}${endpoints.allPokemons}`, {
+    headers: { accept: "application/json" },
+  })
+  return await response.json()
+}
+
 export const Home = () => {
+  const [pokemonList, setPokemonList] = useState<PokemonInfo[]>([])
+
+  useEffect(() => {
+    fetchPokemons().then(pokemonData => setPokemonList(pokemonData))
+  }, [])
+
   return (
     <div className={styles.intro}>
-      <div>Bienvenue sur ton futur pokédex !</div>
-      <div>Tu vas pouvoir apprendre tout ce qu'il faut sur React, Redux et Symfony, et attraper des pokemons !</div>
-      <div>
-        <Pokemon name={"Carapuce"} id={7} />
-        <Pokemon name={"Carabaffe"} id={8} />
-        <Pokemon name={"Tortank"} id={9} />
+      <div>Pokédex !</div>
+      <div className={styles.pokemon_cards_container}>
+        {pokemonList.map(pokemon => (
+          <Pokemon key={pokemon.id} pokemon={pokemon} />
+        ))}
       </div>
     </div>
   )

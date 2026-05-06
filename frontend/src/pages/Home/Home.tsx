@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react"
 import { Pokemon } from "../../components/Pokemon"
 import styles from "./Home.module.css"
+import { Loader } from "../../components/Loader"
 
 export interface PokemonInfo {
   name: string
@@ -23,14 +24,19 @@ const fetchPokemons = async () => {
 
 export const Home = () => {
   const [pokemonList, setPokemonList] = useState<PokemonInfo[]>([])
+  const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
-    fetchPokemons().then(pokemonData => setPokemonList(pokemonData))
+    fetchPokemons().then(pokemonData => {
+      setPokemonList(pokemonData)
+      setIsLoading(false)
+    })
   }, [])
 
   return (
     <div className={styles.intro}>
       <div>Pokédex !</div>
+      <div className={styles.loader_container}>{isLoading && <Loader />}</div>
       <div className={styles.pokemon_cards_container}>
         {pokemonList.map(pokemon => (
           <Pokemon key={pokemon.id} pokemon={pokemon} />

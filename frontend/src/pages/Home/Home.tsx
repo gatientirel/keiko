@@ -31,6 +31,11 @@ function filterPokemonsByName(pokemons: Pokemon[], name: string) {
   return pokemons.filter(pokemon => normalizeStr(pokemon.name).includes(normalizeStr(name)))
 }
 
+const fetchPokemons = () =>
+  fetch(`${BASE_URL_POKEMON_API}${endpoints.allPokemons}`, {
+    headers: { accept: "application/json" },
+  }).then(response => response.json())
+
 export const Home = () => {
   const [filterValue, setFilterValue] = useState("")
   const [pokemonList, setPokemonList] = useState<PokemonInfo[]>([])
@@ -38,9 +43,7 @@ export const Home = () => {
   const onInputChange = useCallback((e: ChangeEvent<HTMLInputElement>) => setFilterValue(e.target.value), [])
 
   useEffect(() => {
-    fetch(`${BASE_URL_POKEMON_API}${endpoints.allPokemons}`, { headers: { accept: "application/json" } })
-      .then(response => response.json())
-      .then(pokemonData => setPokemonList(pokemonData))
+    fetchPokemons().then(pokemonData => setPokemonList(pokemonData))
   }, [])
 
   return (

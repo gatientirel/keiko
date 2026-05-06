@@ -4,7 +4,7 @@ import { Home } from "./index"
 describe("<Home />", () => {
   it("should display Carapuce", () => {
     render(<Home />)
-    const carapuce = screen.getByText("Carapuce")
+    const carapuce = screen.getByText("/Carapuce/i")
     expect(carapuce).toBeInTheDocument()
   })
 })

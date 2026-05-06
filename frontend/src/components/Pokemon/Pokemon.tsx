@@ -1,13 +1,13 @@
 import styles from "../../pages/Home/Home.module.css"
+import { Pokemon as PokemonType } from "../../pages/Home"
 
 interface PokemonProps {
-  name: string
-  id: number
+  pokemon: PokemonType
 }
 
 const BASE_URL_SPRITE_POKEMON = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon"
 
-export const Pokemon = ({ name, id }: PokemonProps) => {
+export const Pokemon = ({ pokemon: { name, id } }: PokemonProps) => {
   return (
     <div className={styles.intro}>
       <img src={`${BASE_URL_SPRITE_POKEMON}/${id}.png`} />

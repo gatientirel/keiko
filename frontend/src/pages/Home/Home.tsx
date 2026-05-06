@@ -31,10 +31,12 @@ function filterPokemonsByName(pokemons: Pokemon[], name: string) {
   return pokemons.filter(pokemon => normalizeStr(pokemon.name).includes(normalizeStr(name)))
 }
 
-const fetchPokemons = () =>
-  fetch(`${BASE_URL_POKEMON_API}${endpoints.allPokemons}`, {
+const fetchPokemons = async () => {
+  const response = await fetch(`${BASE_URL_POKEMON_API}${endpoints.allPokemons}`, {
     headers: { accept: "application/json" },
-  }).then(response => response.json())
+  })
+  return response.json()
+}
 
 export const Home = () => {
   const [filterValue, setFilterValue] = useState("")

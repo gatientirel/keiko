@@ -18,3 +18,7 @@
 .input:focus-visible {
   outline: solid lightgray;
 }
+
+.label {
+  font-size: 10px;
+}

@@ -1,2 +1,2 @@
 export { Home } from "./Home"
-export type { Pokemon } from "./Home"
+export type { PokemonInfo } from "./Home"

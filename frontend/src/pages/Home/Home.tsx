@@ -31,7 +31,7 @@ export const Home = () => {
   return (
     <div className={styles.intro}>
       <div>Pokédex !</div>
-      <div>
+      <div className={styles.pokemon_cards_container}>
         {pokemonList.map(pokemon => (
           <Pokemon key={pokemon.id} pokemon={pokemon} />
         ))}

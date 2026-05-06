@@ -13,8 +13,8 @@ export const Pokemon = ({ pokemon: { name, id, weight, height } }: PokemonProps)
       <p>{name}</p>
       <img src={`${BASE_URL_SPRITE_POKEMON}/${id}.png`} />
       <p>Id: {id}</p>
-      <p>Weight: {weight}</p>
-      <p>Height: {height}</p>
+      <p>Weight: {weight} kg</p>
+      <p>Height: {height} cm</p>
     </div>
   )
 }

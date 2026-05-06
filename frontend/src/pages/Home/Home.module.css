@@ -19,6 +19,8 @@
   outline: solid lightgray;
 }
 
-.label {
-  font-size: 10px;
+.pokemon_cards_container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  gap: 5px;
 }

@@ -2,7 +2,7 @@ import styles from "../../pages/Home/Home.module.css"
 
 interface PokemonProps {
   name: string
-  id: string | number
+  id: number
 }
 
 const BASE_URL_SPRITE_POKEMON = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon"

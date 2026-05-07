@@ -5,3 +5,4 @@ export const MIN_POKEMON_ID = 1
 export const MAX_POKEMON_ID = 151
 export const MIN_POKEDEX_PAGE = 1
 export const MAX_POKEDEX_PAGE = 10
+export const POKEDEX_PAGE_SIZE = 15

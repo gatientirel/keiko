@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react"
 import { Pokemon } from "../../components/Pokemon"
 import styles from "./Home.module.css"
+import { getAllPokemons } from "../../utils"
 import { Loader } from "../../components/Loader"
 
 export interface PokemonInfo {
@@ -10,28 +11,14 @@ export interface PokemonInfo {
   weight: number
 }
 
-const BASE_URL_POKEMON_API = "http://localhost:8000"
-const endpoints = {
-  allPokemons: "/pokemons",
-}
-
-const fetchPokemons = async () => {
-  const response = await fetch(`${BASE_URL_POKEMON_API}${endpoints.allPokemons}`, {
-    headers: { accept: "application/json" },
-  })
-  return await response.json()
-}
-
 export const Home = () => {
   const [pokemonList, setPokemonList] = useState<PokemonInfo[]>([])
   const [isLoading, setIsLoading] = useState(true)
   const [isInError, setIsInError] = useState(false)
 
   useEffect(() => {
-    fetchPokemons()
-      .then(pokemonData => {
-        setPokemonList(pokemonData)
-      })
+    getAllPokemons()
+      .then(pokemonData => setPokemonList(pokemonData))
       .catch(() => {
         setIsInError(true)
       })

@@ -1,0 +1,15 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+}
+
+.pokemon_name {
+  text-align: center;
+}
+
+.error-message {
+  padding: 10rem;
+  text-align: center;
+  color: red;
+}

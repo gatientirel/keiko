@@ -1,11 +1,10 @@
 import styles from "./Pokemon.module.css"
 import { PokemonInfo as PokemonType } from "../../pages/Home"
+import { BASE_URL_SPRITE_POKEMON } from '../../utils'
 
 interface PokemonProps {
   pokemon: PokemonType
 }
-
-const BASE_URL_SPRITE_POKEMON = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon"
 
 export const Pokemon = ({ pokemon: { name, id, weight, height } }: PokemonProps) => {
   return (

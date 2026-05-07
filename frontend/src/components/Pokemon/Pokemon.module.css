@@ -6,3 +6,7 @@
   padding: 10px;
   border: 4px double black;
 }
+
+.pokemon_name {
+  text-transform: capitalize;
+}

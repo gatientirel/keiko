@@ -9,3 +9,7 @@
   flex-direction: row;
   justify-content: center;
 }
+
+.pokemon_name {
+  text-transform: capitalize;
+}

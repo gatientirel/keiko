@@ -9,7 +9,7 @@ export const getAllPokemons = async () => {
 }
 
 export const getPokemonsByPage = async (pageNumber: number) => {
-  const response = await fetch(`${BASE_URL_POKEMON_API}$${endpoints.pokemonPage(pageNumber)}`, {
+  const response = await fetch(`${BASE_URL_POKEMON_API}${endpoints.pokemonPage(pageNumber)}`, {
     headers: { accept: "application/json" },
   })
   return await response.json()

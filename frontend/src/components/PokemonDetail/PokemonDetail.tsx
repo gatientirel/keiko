@@ -9,7 +9,7 @@ interface PokemonDetailProps {
 export const PokemonDetail = ({ pokemon: { name, id, weight, height } }: PokemonDetailProps) => {
   return (
     <div className={styles.column}>
-      <p>{name}</p>
+      <p className={styles.pokemon_name}>{name}</p>
       <div className={styles.row}>
         <img src={`${BASE_URL_SPRITE_POKEMON}/${id}.png`} />
         <img src={`${BASE_URL_SPRITE_POKEMON}/back/${id}.png`} />

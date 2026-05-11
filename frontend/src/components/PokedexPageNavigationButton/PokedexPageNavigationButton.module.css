@@ -1,0 +1,22 @@
+.disabled {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.icon_container {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  height: 24px;
+  width: 24px;
+  padding: 8px;
+  border-radius: 100px;
+  transition-property: background-color;
+  transition-duration: 150ms;
+  transition-timing-function: ease;
+}
+
+.icon_container:hover,
+.icon_container:focus-within {
+  background-color: lightgray;
+}

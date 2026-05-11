@@ -5,4 +5,16 @@
   font-size: 1rem;
   padding: 10px;
   border: 4px double black;
+  text-decoration: none;
+  color: black;
+  transition: background-color 150ms ease;
+}
+
+.card:hover,
+.card:focus-within {
+  background-color: lightgray;
+}
+
+.pokemon_name {
+  text-transform: capitalize;
 }
